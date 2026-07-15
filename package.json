@@ -12,6 +12,6 @@
     "start": "node index.js"
   },
   "devDependencies": {
-    "mocha": "^11.7.6"
+    "mocha": "^11.3.0"
   }
 }
