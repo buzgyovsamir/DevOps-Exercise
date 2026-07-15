@@ -32,6 +32,9 @@ jobs:
       run: npm audit --omit=dev
 
   build_test:
+    strategy:
+      matrix:
+        node-version: [20, 22, 24]
 
     needs: build_security_test
 
@@ -41,10 +44,10 @@ jobs:
     - name: Checkout the Repository
       uses: actions/checkout@v4
       
-    - name: Use Node.js 20
+    - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
-        node-version: 20
+        node-version: ${{ matrix.node-version }}
         cache: 'npm'
         
     - name: Install dependencies
